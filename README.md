@@ -1,6 +1,6 @@
 # Recetas en Haskell
 
-La programación funcionale es el paradigma que más me gusta.
+La programación funcional es el paradigma que más me gusta.
 Aquí comparto algunas recetas.
 
 Si quieres compartir el código mira en: 

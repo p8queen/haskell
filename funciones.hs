@@ -1,3 +1,6 @@
+-- https://github.com/p8queen/
+-- Gustavo Carmona
+
 -- largo lista
 largo []=0
 largo (x:xs) = 1 + largo xs
