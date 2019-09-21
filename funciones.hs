@@ -81,3 +81,33 @@ mcd a 0 = a
 mcd a b = mcd b (rem a b)
 
 
+--primer digito 454 -> 4 
+primerDigito :: Integer -> Integer
+primerDigito n | n<=9 = n
+               |otherwise = primerDigito (div n 10)
+
+
+--ultimo digito 454 -> 4 
+ultimoDigito :: Integer -> Integer
+ultimoDigito n = mod n 10
+
+-- esCapicua :: Integer -> Bool
+esCapicua n | n <= 9 = True
+            | n <= 99 = ultimoDigito n == primerDigito n
+            |otherwise = ultimoDigito n == primerDigito n && esCapicua (strip n)
+
+-- 5345 -> 34
+strip :: Integer -> Integer
+strip n = rightStrip (leftStrip n ) 2
+
+-- 7894 -> 789 ,recive n>99
+leftStrip :: Integer -> Integer
+leftStrip n = div n 10
+
+-- 1234 -> 234 ,recive n>99
+rightStrip :: Integer -> Integer -> Integer
+rightStrip n k | 10^k>n = mod n (10^(k-1)) 
+               | otherwise = rightStrip n (k+1)
+
+
+
