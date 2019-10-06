@@ -109,5 +109,36 @@ rightStrip :: Integer -> Integer -> Integer
 rightStrip n k | 10^k>n = mod n (10^(k-1)) 
                | otherwise = rightStrip n (k+1)
 
+maximo :: [Integer] -> Integer
+maximo [x] = x
+maximo (x:y:xs) | x>y = maximo (x:xs)
+                | otherwise = maximo (y:xs)
+
+
+minimo :: [Integer] -> Integer
+minimo [x] = x
+minimo (x:y:xs) | x<y = minimo (x:xs)
+                | otherwise = minimo (y:xs)
+
+
+menores :: Integer -> [Integer] -> [Integer]
+menores x [] = []
+menores x (y:xs) | y<x = y:(menores x xs)
+                 | otherwise = menores x xs
+
+mayores :: Integer -> [Integer] -> [Integer]
+mayores x [] = []
+mayores x (y:xs) | y>x = y:(mayores x xs)
+                 | otherwise = mayores x xs
+
+eliminarRepetidos :: [Integer] -> [Integer]
+eliminarRepetidos [] = []
+eliminarRepetidos (x:xs) | elem x xs = eliminarRepetidos xs
+                         | otherwise = x:eliminarRepetidos xs 
+
+sort :: [Integer] -> [Integer]
+sort [] = []
+sort (x:xs) = (sort $ menores x xs ) ++ [x] ++ (sort $ mayores x xs )
+
 
 
