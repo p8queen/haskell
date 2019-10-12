@@ -141,4 +141,6 @@ sort [] = []
 sort (x:xs) = (sort $ menores x xs ) ++ [x] ++ (sort $ mayores x xs )
 
 
+fibo :: [Integer]
+fibo  = 1:1: [ n | x <- [2..], let n = ((fibo !! (x-1)) + (fibo !! (x-2))) ]
 
